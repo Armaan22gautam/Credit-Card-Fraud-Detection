@@ -12,7 +12,7 @@ def perform_eda(df, output_dir='reports/figures'):
     
     # Class distribution
     plt.figure(figsize=(8, 6))
-    sns.countplot(x='Class', data=df, palette='viridis')
+    sns.countplot(x='Class', data=df, hue='Class', palette='viridis', legend=False)
     plt.title('Distribution of Fraudulent vs Non-Fraudulent Transactions')
     plt.xlabel('Class (0: Non-Fraud, 1: Fraud)')
     plt.ylabel('Count')
@@ -31,7 +31,7 @@ def perform_eda(df, output_dir='reports/figures'):
 
     # Correlation Matrix
     plt.figure(figsize=(12, 10))
-    corr = df.corr()
+    corr = df.corr(numeric_only=True)
     sns.heatmap(corr, cmap='coolwarm_r', annot=False)
     plt.title('Correlation Heatmap')
     plt.savefig(f'{output_dir}/correlation_heatmap.png')

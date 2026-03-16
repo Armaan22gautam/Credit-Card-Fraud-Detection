@@ -35,7 +35,7 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
         model.fit(X_train, y_train)
         
         # Save model
-        with open(f'models/{name.lower().replace(" ", "_")}.pkl', 'wb') as f:
+        with open(f'models/{name.lower().replace(" ", "_").replace("-", "_")}.pkl', 'wb') as f:
             pickle.dump(model, f)
             
         print(f"Evaluating {name}...")

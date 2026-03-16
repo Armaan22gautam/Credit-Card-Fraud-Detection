@@ -19,9 +19,10 @@ def load_data(file_path='data/creditcard.csv'):
 def preprocess_data(df):
     """Preprocesses the data: scaling and handling imbalance."""
     # Scaling 'Amount' and 'Time' (other features are already PCA transformed)
-    scaler = StandardScaler()
-    df['scaled_amount'] = scaler.fit_transform(df['Amount'].values.reshape(-1, 1))
-    df['scaled_time'] = scaler.fit_transform(df['Time'].values.reshape(-1, 1))
+    scaler_amount = StandardScaler()
+    scaler_time = StandardScaler()
+    df['scaled_amount'] = scaler_amount.fit_transform(df['Amount'].values.reshape(-1, 1))
+    df['scaled_time'] = scaler_time.fit_transform(df['Time'].values.reshape(-1, 1))
     
     # Dropping original columns
     df.drop(['Time', 'Amount'], axis=1, inplace=True)
