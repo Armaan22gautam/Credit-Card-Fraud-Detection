@@ -1,5 +1,19 @@
+# Raw dataset (too large for git)
 data/
+
+# Python cache
 __pycache__/
-*.pkl
+*.pyc
+*.pyo
 .ipynb_checkpoints/
+
+# Trained model binaries (large files)
+*.pkl
+
+# Raw report figures (served from static/)
 reports/figures/*.png
+
+# Virtual environments
+venv/
+.env/
+env/
